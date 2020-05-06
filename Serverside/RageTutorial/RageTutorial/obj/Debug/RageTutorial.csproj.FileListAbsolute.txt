@@ -1,0 +1,9 @@
+D:\Programme\RageMP\server-files\dotnet\resources\RageTutorial\RageTutorial.deps.json
+D:\Programme\RageMP\server-files\dotnet\resources\RageTutorial\RageTutorial.dll
+D:\Programme\RageMP\server-files\dotnet\resources\RageTutorial\RageTutorial.pdb
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.csprojAssemblyReference.cache
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.AssemblyInfoInputs.cache
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.AssemblyInfo.cs
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.csproj.CopyComplete
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.dll
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.pdb

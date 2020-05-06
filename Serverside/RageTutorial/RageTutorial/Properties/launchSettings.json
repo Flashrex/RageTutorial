@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "RageTutorial": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Programme\\RageMP\\server-files\\ragemp-server.exe",
+      "workingDirectory": "D:\\Programme\\RageMP\\server-files"
+    }
+  }
+}
