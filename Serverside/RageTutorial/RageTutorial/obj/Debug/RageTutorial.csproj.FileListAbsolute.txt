@@ -7,3 +7,4 @@ D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\D
 D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.csproj.CopyComplete
 D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.dll
 D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.pdb
+D:\Dokumente\Coding\Rage\RageTutorial\Serverside\RageTutorial\RageTutorial\obj\Debug\RageTutorial.csproj.CoreCompileInputs.cache

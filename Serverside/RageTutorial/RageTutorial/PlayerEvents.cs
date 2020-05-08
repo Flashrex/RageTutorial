@@ -14,10 +14,14 @@ namespace RageTutorial {
 
             //auf Player-Objekt zugreifen und Variable in einen String einfügen
             NAPI.Util.ConsoleOutput($"[Server] Der Spieler {player.Name} hat den Server betreten.");
+        }
 
-            //Nach Login
-            IPlayer iplayer = new IPlayer();
-            player.SetData("PlayerData", iplayer);
+        [ServerEvent(Event.PlayerDisconnected)]
+        public void OnPlayerDisconnected(Player player, DisconnectionType type, string reason) {
+            if (!IPlayer.IsPlayerLoggedIn(player)) return;
+
+            IPlayer iplayer = player.GetData<IPlayer>("PlayerData");
+            iplayer.Disconnect();
         }
 
         [ServerEvent(Event.PlayerSpawn)]

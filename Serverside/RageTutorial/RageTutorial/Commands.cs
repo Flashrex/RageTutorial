@@ -1,6 +1,8 @@
 ﻿using GTANetworkAPI;
+using RageTutorial.Database;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace RageTutorial {
     class Commands : Script {
@@ -61,6 +63,60 @@ namespace RageTutorial {
             using (StreamWriter file = new StreamWriter(@".\serverdata\positions.txt", true)) {
                 file.WriteLine(line);
             }
+        }
+
+
+        // /register [Name] [Passwort]
+        // /login [Name] [Passwort]
+        [Command("register", "~y~Nutze: ~w~/register [Name] [Passwort] um dich zu registrieren.")]
+        public void CMD_Register(Player player, string name, string password) {
+
+            Regex regex = new Regex(@"([a-zA-Z]+)_([a-zA-Z]+)");
+            if(!regex.IsMatch(name)) {
+                player.SendChatMessage("Der Name muss dem Format Vorname_Nachname entsprechen!");
+                return;
+            }
+
+            if (PlayerData.DoesPlayerNameExists(name)) {
+                player.SendChatMessage("Dieser Name ist bereits bei uns registriert!");
+                player.SendChatMessage("Nutze /login um dich zu einzuloggen.");
+                return;
+            }
+
+            IPlayer iplayer = new IPlayer(name, player);
+            iplayer.Register(name, password);
+        }
+
+        [Command("login", "~y~Nutze: ~w~/login [Name] [Passwort] um dich einzuloggen.")]
+        public void CMD_Login(Player player, string name, string password) {
+
+            if(IPlayer.IsPlayerLoggedIn(player)) {
+                player.SendChatMessage("Du bist bereits eingeloggt!");
+                return;
+            }
+
+            Regex regex = new Regex(@"([a-zA-Z]+)_([a-zA-Z]+)");
+            if (!regex.IsMatch(name)) {
+                player.SendChatMessage("Der Name muss dem Format Vorname_Nachname entsprechen!");
+                return;
+            }
+
+            if(!PlayerData.DoesPlayerNameExists(name)) {
+                player.SendChatMessage("Name wurde nicht gefunden!");
+                player.SendChatMessage("Nutze /register um dich zu registrieren.");
+                return;
+            }
+
+            IPlayer iplayer = new IPlayer(name, player);
+            iplayer.Login(false);
+        }
+
+        [Command("stats")]
+        public void CMD_Stats(Player player) {
+            if (!IPlayer.IsPlayerLoggedIn(player)) return;
+
+            IPlayer iplayer = player.GetData<IPlayer>("PlayerData");
+            player.SendChatMessage($"Name: ~b~{iplayer.Name}~w~, Level: ~b~{iplayer.Level}~w~, Adminlevel: ~b~{iplayer.AdminLevel}~w~, Cash: ~b~{iplayer.Cash}~w~");
         }
     }
 }
