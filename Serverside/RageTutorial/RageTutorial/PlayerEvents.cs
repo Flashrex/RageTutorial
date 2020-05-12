@@ -3,6 +3,10 @@
 namespace RageTutorial {
     class PlayerEvents : Script{
 
+        /// <summary>
+        /// Wird aufgerufen wenn ein Spieler auf den Server connectet
+        /// </summary>
+        /// <param name="player"></param>
         [ServerEvent(Event.PlayerConnected)]
         public void OnPlayerConnected(Player player) {
 
@@ -16,14 +20,29 @@ namespace RageTutorial {
             NAPI.Util.ConsoleOutput($"[Server] Der Spieler {player.Name} hat den Server betreten.");
         }
 
+        /// <summary>
+        /// Wird aufgerufen wenn ein Spieler den Server verlässt
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="type"></param>
+        /// <param name="reason"></param>
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnected(Player player, DisconnectionType type, string reason) {
+
+            //Checke ob Spieler eingeloggt ist
             if (!IPlayer.IsPlayerLoggedIn(player)) return;
 
+            //Lade Spielerobjekt von Spieler
             IPlayer iplayer = player.GetData<IPlayer>("PlayerData");
+
+            //Disconnecte den Spieler
             iplayer.Disconnect();
         }
 
+        /// <summary>
+        /// Wird aufgerufen wenn Spieler spawnt
+        /// </summary>
+        /// <param name="player"></param>
         [ServerEvent(Event.PlayerSpawn)]
         public void OnPlayerSpawn(Player player) {
 
@@ -34,6 +53,7 @@ namespace RageTutorial {
             player.Health = 50;
             player.Armor = 60;
 
+            //Setze Position und Rotation des Spielers
             player.Position = new Vector3(-418.94867, 1147.3202, 325.8597);
             player.Rotation = new Vector3(0, 0, 164.09552);
         }
