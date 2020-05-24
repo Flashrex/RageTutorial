@@ -19,6 +19,9 @@ namespace RageTutorial {
         //Geld (Bargeld) des Spielers
         public long Cash { get; set; }
 
+        //Zeigt ob Spieler gefreezt ist
+        public bool Freezed { get; set; }
+
         //Es muss immer ein leerer Konstruktor vorhanden sein
         public IPlayer() {}
 

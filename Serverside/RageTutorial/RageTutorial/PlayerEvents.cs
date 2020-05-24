@@ -57,5 +57,17 @@ namespace RageTutorial {
             player.Position = new Vector3(-418.94867, 1147.3202, 325.8597);
             player.Rotation = new Vector3(0, 0, 164.09552);
         }
+
+        /// <summary>
+        /// Remote Event "chat" wird registriert
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="time"></param>
+        [RemoteEvent("chat")]
+        public void OnChat(Player player, string time) {
+
+            //Sende Spieler Nachricht mit dem vom Client übergebenen string
+            player.SendChatMessage(time);
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace RageTutorial {
                 return;
             }
 
+
             //Versuche mit dem eingegebenen Fahrzeugnamen das passende Fahrzeug zu finden
             VehicleHash vehHash = NAPI.Util.VehicleNameToModel(vehName);
 
@@ -169,6 +170,10 @@ namespace RageTutorial {
 
             //Logge den Spieler ein
             iplayer.Login(false);
+
+            NAPI.Task.Run(() => {
+
+            }, 1000);
         }
 
         //Ein Command wird registriert
@@ -183,6 +188,22 @@ namespace RageTutorial {
 
             //Sende Spieler Nachricht mit all seinen Daten
             player.SendChatMessage($"Name: ~b~{iplayer.Name}~w~, Level: ~b~{iplayer.Level}~w~, Adminlevel: ~b~{iplayer.AdminLevel}~w~, Cash: ~b~{iplayer.Cash}~w~");
+        }
+
+        //Ein Command wird registriert
+        [Command("freeze")]
+        public void CMD_Freeze(Player player) {
+            //Checke ob Spieler eingeloggt ist, wenn nicht beende Funktion
+            if (!IPlayer.IsPlayerLoggedIn(player)) return;
+
+            //Lade Spielerobjekt vom Spieler
+            IPlayer iplayer = player.GetData<IPlayer>("PlayerData");
+
+            //Rufe Clientside Event "Player.Freeze" beim Spieler auf
+            NAPI.ClientEvent.TriggerClientEvent(player, "Player.Freeze", !iplayer.Freezed);
+
+            //Setze Freezed auf das Gegenteil
+            iplayer.Freezed = !iplayer.Freezed;
         }
     }
 }
