@@ -1,0 +1,54 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+p {
+    font-size: 75%;
+    color: #ff0033;
+}
+.login-box{
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+}
+.textbox{
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #509FEE;
+}
+.textbox i{
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+.textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+.btn {
+    width: 15%;
+    background: none;
+    border: 2px solid #509FEE;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 40%;
+    border-radius: 100%;
+    outline: none;
+}

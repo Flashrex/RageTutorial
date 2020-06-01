@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div class="login-box" id="box">
+            <div class="textbox">
+                <i class="fas fa-user"></i>
+                <input id="name" type="text" placeholder="Username" maxlength="20" autofocus>
+            </div>
+
+            <div class="textbox" id="pw">
+                <i class="fas fa-lock"></i>
+                <input id="password" type="password" placeholder="Password" maxlength="20">
+            </div>
+            <p id="warning"></p>
+            <input type="button" class="btn" value=">" onclick="submit()">
+        </div>
+
+        <!--Scripts-->
+        <script>
+            let register = false;
+            function toggleWarningText(text) {
+                document.getElementById('warning').innerHTML = text;
+            }
+
+            function activateRegisterInput() {
+               register = true;
+               document.getElementById("pw").insertAdjacentHTML('afterend', '<div class="textbox"><i class="fas fa-lock"></i><input id="password_repeat" type="password" placeholder="Password wiederholen" maxlength="20"></div>');
+            }
+
+            function submit() {
+                toggleWarningText("");
+
+                let password_repeat;
+                let name = document.getElementById("name").value;
+                let password = document.getElementById("password").value;
+                if(register) password_repeat = document.getElementById("password_repeat").value;
+
+                if(name.length < 4 || password.length < 4) {
+                    toggleWarningText("Die Eingaben müssen mindest 4 Zeichen lang sein.");
+                } else {
+                    if(!name.match(/([a-zA-Z]+)_([a-zA-Z]+)/)) {
+                        toggleWarningText("Der Name muss dem Format Vorname_Nachname entsprechen.");
+                        return;
+                    }
+
+                    if(register) {
+                        if(password === password_repeat) {
+                            mp.trigger('Login.Register', name, password);
+                        } else {
+                            toggleWarningText("Die Passwörter stimmen nicht überein.");
+                        }
+
+
+                    } else {
+                        mp.trigger('Login.Submit', name, password);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

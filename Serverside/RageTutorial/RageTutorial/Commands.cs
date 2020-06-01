@@ -165,15 +165,17 @@ namespace RageTutorial {
                 return;
             }
 
+            //Überprüfe ob das Passwort stimmt
+            if (!PlayerData.CheckPassword(name, password)) {
+                player.SendChatMessage("Das Passwort stimmt nicht!");
+                return;
+            }
+
             //Erzeuge Spielerobjekt
             IPlayer iplayer = new IPlayer(name, player);
 
             //Logge den Spieler ein
             iplayer.Login(false);
-
-            NAPI.Task.Run(() => {
-
-            }, 1000);
         }
 
         //Ein Command wird registriert
