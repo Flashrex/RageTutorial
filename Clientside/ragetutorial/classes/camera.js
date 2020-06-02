@@ -35,10 +35,6 @@ class Camera {
         mp.game.streaming.setFocusArea(this.position.x, this.position.y, this.position.z, 0, 0, 0);
     }
 
-    moveTo() {
-        
-    }
-
     startMoving(range) {
         this.isMoving = true;
         this.range = range;
