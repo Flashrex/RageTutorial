@@ -2,8 +2,6 @@
     Author : https://rage.mp/profile/32455-flashrex/
 */
 
-const natives = require('./ragetutorial/classes/natives');
-
 class Camera {
     static Current_Cam = null;
 
@@ -48,7 +46,7 @@ class Camera {
     delete() {
         this.camera.destroy();
         mp.game.cam.renderScriptCams(false, false, 0, false, false);
-        natives.CLEAR_FOCUS();
+        mp.game.invoke("0x31B73D1EA9F01DA2");
         Camera.Current_Cam = null;
     }
 }
