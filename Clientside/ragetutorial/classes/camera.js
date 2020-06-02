@@ -2,6 +2,8 @@
     Author : https://rage.mp/profile/32455-flashrex/
 */
 
+const CLEAR_FOCUS = "0x31B73D1EA9F01DA2";
+
 class Camera {
     static Current_Cam = null;
 
@@ -46,7 +48,7 @@ class Camera {
     delete() {
         this.camera.destroy();
         mp.game.cam.renderScriptCams(false, false, 0, false, false);
-        mp.game.invoke("0x31B73D1EA9F01DA2");
+        mp.game.invoke(CLEAR_FOCUS);
         Camera.Current_Cam = null;
     }
 }
