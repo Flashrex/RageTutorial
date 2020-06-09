@@ -18,6 +18,11 @@ mp.events.add({
 
         mp.events.callRemote('Login.OnRegister', name, password);
 
+        if(loginCam !== null) {
+            loginCam.delete();
+            loginCam = null;
+        }
+
         if(loginBrowser !== null) {
             loginBrowser.close();
             loginBrowser = null;
@@ -39,6 +44,11 @@ mp.events.add({
     "Login.Success": () => {
         mp.gui.cursor.show(false, false);
         mp.gui.chat.show(true);
+
+        if(loginCam !== null) {
+            loginCam.delete();
+            loginCam = null;
+        }
 
         if(loginBrowser !== null) {
             loginBrowser.close();
