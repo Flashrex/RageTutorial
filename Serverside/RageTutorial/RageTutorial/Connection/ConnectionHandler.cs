@@ -59,8 +59,6 @@ namespace RageTutorial.Connection {
             NAPI.ClientEvent.TriggerClientEvent(player, "Login.Success");
 
             NAPI.Player.SpawnPlayer(player, new Vector3());
-
-            player.SendChatMessage("!{#fc352b}Test");
         }
 
         [RemoteEvent("Login.OnRegister")]

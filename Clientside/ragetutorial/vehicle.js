@@ -51,5 +51,5 @@ mp.keys.bind(0x4E, true, function() {
     lastInteraction = Date.now();
 
     //Rufe RemoteEvent "chat" auf
-    mp.events.callRemote('chat', Date.now());
+    //mp.events.callRemote('chat', Date.now());
 })

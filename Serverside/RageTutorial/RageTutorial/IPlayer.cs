@@ -77,6 +77,11 @@ namespace RageTutorial {
 
             //Sende Nachricht
             Player.SendChatMessage("Willkommen auf dem Server.");
+
+            //ShowCash(true);
+
+            //Update das Geld oben rechts
+            UpdateCashHud();
         }
 
         /// <summary>
@@ -118,9 +123,33 @@ namespace RageTutorial {
         /// <param name="level"></param>
         /// <returns></returns>
         public bool HasAdminLevel(int level) {
-
             //Return true, wenn Adminlevel höher oder gleich level
             return AdminLevel >= level;
         }
-    }
+
+        /// <summary>
+        /// Fügt dem Spieler Bargeld hinzu und updated das Hud.
+        /// </summary>
+        /// <param name="newcash"></param>
+        public void AddCash(int newcash) {
+            Cash += newcash;
+            UpdateCashHud();
+            Save();
+        }
+
+        /// <summary>
+        /// Bestimmt ob das Geld oben rechts angezeigt werden soll.
+        /// </summary>
+        /// <param name="toggle"></param>
+        public void ShowCash(bool toggle) {
+            Player.TriggerEvent("Hud.ToggleCash", toggle);
+        }
+
+        /// <summary>
+        /// Updated das Geld oben rechts.
+        /// </summary>
+        private void UpdateCashHud() {
+            Player.SetSharedData("PlayerData.Shared.Cash", Cash);
+        }
+    } 
 }

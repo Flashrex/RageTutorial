@@ -207,5 +207,13 @@ namespace RageTutorial {
             //Setze Freezed auf das Gegenteil
             iplayer.Freezed = !iplayer.Freezed;
         }
+
+        [Command("givemoney")]
+        public void CMD_GiveMoney(Player player, int cash) {
+            if (!IPlayer.IsPlayerLoggedIn(player)) return;
+            IPlayer iplayer = player.GetData<IPlayer>("PlayerData");
+
+            iplayer.AddCash(cash);
+        }
     }
 }
