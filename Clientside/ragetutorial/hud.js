@@ -4,6 +4,9 @@ const HUD_CASH = 3;
 //Bestimmt ob Geld angezeigt wird oder nicht
 let cashHudActive = false;
 
+//Zur Sicherheit einmal das Geld oben rechts resetten
+mp.game.stats.statSetInt(mp.game.joaat("SP0_TOTAL_CASH"), 0, false);
+
 //Hiermit kann SharedData abgerufen werden
 //mp.players.local.getVariable("PlayerData.Shared.Cash");
 
