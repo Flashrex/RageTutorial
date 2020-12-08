@@ -10,7 +10,4 @@ Wenn du mehr über Rage:MP wissen möchtest kannst du hier ihre Website besuchen
 Tutorial-Playlist:
 https://www.youtube.com/watch?v=VvM6iu321Eg&list=PLF4R_lvpina_p17OwwAAwOZTTyP1Tldqz
 
-Discord: Flashrex#6783
-Twitch: twitch.tv/flashrex
-
-
+Discord: https://discord.gg/5au9Wjx
